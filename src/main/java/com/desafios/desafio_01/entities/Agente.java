@@ -1,6 +1,8 @@
 package com.desafios.desafio_01.entities;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -21,12 +23,12 @@ public class Agente implements Serializable {
 	private Long id;
 	@Column(name = "nome_agente")
 	private String nome;
-	private String data;
+	private LocalDate data;
 	
 	public Agente() {
 	}
 
-	public Agente(Long id, String nome, String data) {
+	public Agente(Long id, String nome, LocalDate data) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -49,11 +51,11 @@ public class Agente implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 
