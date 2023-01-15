@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.desafios.desafio_01.entities.Agente;
-import com.desafios.desafio_01.services.AgenteService;
+import com.desafios.desafio_01.entities.Regiao;
+import com.desafios.desafio_01.services.RegiaoService;
 
 @RestController
-@RequestMapping(value = "/agentes")
-public class AgenteResource {
+@RequestMapping(value = "/regioes")
+public class RegiaoResource {
 	
 	@Autowired 
-	private AgenteService service;
+	private RegiaoService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Agente>> findAll() {
-		List<Agente> list = service.findAll();
+	public ResponseEntity<List<Regiao>> findAll() {
+		List<Regiao> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<Agente> findById(@PathVariable Long id) {
-		Agente obj = service.findById(id);
+	public ResponseEntity<Regiao> findById(@PathVariable Long id) {
+		Regiao obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }

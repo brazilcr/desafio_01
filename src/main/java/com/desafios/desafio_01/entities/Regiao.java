@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.desafios.desafio_01.entities.Agente;
+import com.desafios.desafio_01.entities.Regiao;
 
 @Entity
 @Table(name = "tb_regiao")
@@ -22,6 +22,7 @@ public class Regiao implements Serializable {
 	@Column(name = "id")
 	private Long id;
 	@Column(name = "nome_regiao")
+	private String nome;
 	private Double geracao;
 	@Column(name = "preco_compra")
 	private Double compra;
@@ -31,20 +32,29 @@ public class Regiao implements Serializable {
 	public Regiao() {
 	}
 
-	public Regiao(Long id, Double geracao, Double compra, Double pMedio) {
+	public Regiao(Long id, String nome, Double geracao, Double compra, Double pMedio) {
 		super();
 		this.id = id;
+		this.nome = nome;
 		this.geracao = geracao;
 		this.compra = compra;
 		this.pMedio = pMedio;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public Double getGeracao() {
