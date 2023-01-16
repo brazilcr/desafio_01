@@ -29,10 +29,9 @@ public class TestConfig implements CommandLineRunner {
 		Agente a3 = new Agente(null, "Raimundo", "2022-12-01");
 		
 		agenteRepository.saveAll(Arrays.asList(a1, a2, a3));
-
-		Regiao r1 = new Regiao(null, 1.32221, 1.43333, 90.5);
-		Regiao r2 = new Regiao(null, 2.22332, 2.34442, 2190.0);
-		Regiao r3 = new Regiao(null, 3.223311,3.322345, 1250.0);
+		Regiao r1 = new Regiao(null, "Sul", 1.32221, 1.43333, 90.5);
+		Regiao r2 = new Regiao(null, "Norte", 2.22332, 2.34442, 2190.0);
+		Regiao r3 = new Regiao(null, "Nordeste", 3.223311,3.322345, 1250.0);
 		regiaoRepository.saveAll(Arrays.asList(r1, r2, r3));
 	}
 
