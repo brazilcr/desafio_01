@@ -21,16 +21,28 @@ public class Agente implements Serializable {
 	private Long id;
 	@Column(name = "nome_agente")
 	private String nome;
+	private String codigo;
 	private String data;
 	
 	public Agente() {
 	}
 
-	public Agente(Long id, String nome, String data) {
+	public Agente(Long id, String nome, String codigo, String data) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.codigo = codigo;
 		this.data = data;
+	}
+
+
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public Long getId() {

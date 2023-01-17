@@ -1,6 +1,10 @@
 package com.desafios.desafio_01.entities;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,36 +13,51 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TypedQuery;
+
+import org.hibernate.annotations.NamedNativeQueries;
+import org.hibernate.annotations.NamedNativeQuery;
 
 import com.desafios.desafio_01.entities.Regiao;
 
+@NamedNativeQueries({
+	@NamedNativeQuery(
+			name = "resumao", 
+			query = "SELECT * FROM Regiao",
+			resultClass=Regiao.class
+	)
+})
 @Entity
 @Table(name = "tb_regiao")
 public class Regiao implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
-	@Column(name = "nome_regiao")
-	private String nome;
+	private String codigo;
+	private String data;
+	private String sigla;
 	private Double geracao;
 	@Column(name = "preco_compra")
 	private Double compra;
 	@Column(name = "preco_medio")
-	private Double pMedio;
-	
+	private Double precoMedio;
+
 	public Regiao() {
 	}
 
-	public Regiao(Long id, String nome, Double geracao, Double compra, Double pMedio) {
+	public Regiao(Long id, String codigo, String localDateTime, String sigla, Double geracao, Double compra,
+			Double precoMedio) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.codigo = codigo;
+		this.data = localDateTime;
+		this.sigla = sigla;
 		this.geracao = geracao;
 		this.compra = compra;
-		this.pMedio = pMedio;
+		this.precoMedio = precoMedio;
 	}
 
 	public Long getId() {
@@ -49,12 +68,28 @@ public class Regiao implements Serializable {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getCodigo() {
+		return codigo;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getSigla() {
+		return sigla;
+	}
+
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
 	}
 
 	public Double getGeracao() {
@@ -73,12 +108,12 @@ public class Regiao implements Serializable {
 		this.compra = compra;
 	}
 
-	public Double getpMedio() {
-		return pMedio;
+	public Double getPrecoMedio() {
+		return precoMedio;
 	}
 
-	public void setpMedio(Double pMedio) {
-		this.pMedio = pMedio;
+	public void setPrecoMedio(Double precoMedio) {
+		this.precoMedio = precoMedio;
 	}
 
 	@Override
@@ -97,4 +132,5 @@ public class Regiao implements Serializable {
 		Agente other = (Agente) obj;
 		return Objects.equals(id, other.getId());
 	}
+
 }

@@ -3,6 +3,7 @@ package com.desafios.desafio_01.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,4 +31,10 @@ public class AgenteResource {
 		Agente obj = service.findById(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	/*@GetMapping(value = "/goupload")
+	public ResponseEntity<String> getDoupload() {
+		System.out.println("entrei aqui 2");
+		String message = "Successfully uploaded!";
+		return ResponseEntity.status(HttpStatus.OK).body(message);
+	} */
 }
