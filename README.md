@@ -14,3 +14,4 @@ o	~~exemplo_03.xml~~
 *	~~Salvar os itens no Banco de dados.~~
 *	Recuperar um dado consolidado por região.
 
+eof ==
